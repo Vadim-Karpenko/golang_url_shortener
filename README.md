@@ -1,6 +1,6 @@
 # Golang URL Shortener
 
-This is a simple URL shortener implemented in Golang, Gin, and Redis. It allows you to shorten long URLs into shorter, more manageable ones, and manage access limits.
+An implementation of URL Shortener in Golang, Gin, and Redis. It allows you to shorten long URLs into shorter, more manageable ones and manage access limits.
 
 ## Features
 
