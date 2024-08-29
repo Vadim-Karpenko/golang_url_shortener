@@ -45,9 +45,9 @@ An implementation of URL Shortener in Golang, Gin, and Redis. It allows you to s
 - **Endpoint**: `POST /create`
 - **Parameters**:
   - `long_url` (required): The original long URL.
-  - `max_access` (optional): Maximum number of times the short URL can be accessed.
-  - `max_per_hour` (optional): Maximum number of times the short URL can be accessed per hour.
-  - `max_age` (optional): Maximum age of the short URL in seconds.
+  - `max_access` (optional): Maximum number of times the short URL can be accessed. Default: -1.
+  - `max_per_hour` (optional): Maximum number of times the short URL can be accessed per hour. Default: -1.
+  - `max_age` (optional): Maximum age of the short URL in seconds. Default: 3600.
 
 - **Example**:
     ```sh
@@ -63,11 +63,11 @@ An implementation of URL Shortener in Golang, Gin, and Redis. It allows you to s
     {"token": "BANVmpyh"}
     ```
 
-### Redirect to Long URL
+### Use Short URL
 
 - **Endpoint**: `GET /:token`
 - **Parameters**:
-  - `token` (required): The short URL code.
+  - `token` (required): The token you got at the creation step.
 
 - **Example**:
     ```sh
