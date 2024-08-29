@@ -174,6 +174,9 @@ func redirectHandler(c *gin.Context, rdb *redis.Client) {
 func main() {
 	r := gin.Default()
 
+	// Uncomment the line below to run the application in release mode
+	// gin.SetMode(gin.ReleaseMode)
+
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     redisAddr,
 		Password: redisPassword,
