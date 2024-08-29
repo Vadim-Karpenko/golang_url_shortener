@@ -172,10 +172,14 @@ func redirectHandler(c *gin.Context, rdb *redis.Client) {
 }
 
 func main() {
-	r := gin.Default()
-
 	// Uncomment the line below to run the application in release mode
-	// gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.ReleaseMode)
+	// The following lines disable logging to stdout and stderr. In case of high traffic, it's recommended
+	// to disable logging to prevent the logs from consuming too much resources.
+	// gin.DefaultWriter = io.Discard
+	// gin.DefaultErrorWriter = io.Discard
+
+	r := gin.Default()
 
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     redisAddr,
