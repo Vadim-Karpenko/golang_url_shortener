@@ -1,4 +1,4 @@
-# URL Shortener
+# Golang URL Shortener
 
 This is a simple URL shortener implemented in Golang, Gin, and Redis. It allows you to shorten long URLs into shorter, more manageable ones, and manage access limits.
 
@@ -74,6 +74,22 @@ This is a simple URL shortener implemented in Golang, Gin, and Redis. It allows 
     curl -X GET http://localhost:8080/abc123
     ```
 
+## Testing
+
+To run the tests for this URL shortener application, follow these steps:
+
+1. **Navigate to the project directory**:
+    ```sh
+    cd ./golang_url_shortener
+    ```
+
+2. **Run the tests**:
+    ```sh
+    go test
+    ```
+
+
+
 ## Configuration
 
 The following configuration options are available in the `main.go` file:
@@ -100,7 +116,3 @@ Contributions are welcome! Please open an issue or submit a pull request for any
     git push origin feature/your-feature-name
     ```
 5. **Open a pull request**.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

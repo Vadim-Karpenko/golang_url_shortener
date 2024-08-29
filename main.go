@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"math/rand"
 	"net/http"
 	"strconv"
@@ -128,7 +127,7 @@ func redirectHandler(c *gin.Context, rdb *redis.Client) {
 
 	val, err := rdb.Get(ctx, token).Result()
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"message": "Error finding your short URL. It may have expired or never existed."})
+		c.JSON(http.StatusNotFound, gin.H{"message": "Error finding your short URL. It may have expired or never existed."})
 		return
 	}
 
@@ -141,8 +140,7 @@ func redirectHandler(c *gin.Context, rdb *redis.Client) {
 
 	lastHourlyResetAt, _ := time.Parse(time.RFC3339, urlEntry.LastHourlyResetAt)
 
-	fmt.Println(urlEntry.MaxAccess)
-	if urlEntry.MaxAccess != -1 && urlEntry.CurrentAccessCount >= urlEntry.MaxAccess {
+	if urlEntry.MaxAccess != -1 && urlEntry.CurrentAccessCount > urlEntry.MaxAccess {
 		rdb.Del(ctx, token)
 		c.JSON(http.StatusBadRequest, gin.H{"message": "Max access reached"})
 		return
