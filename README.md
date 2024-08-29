@@ -71,7 +71,7 @@ An implementation of URL Shortener in Golang, Gin, and Redis. It allows you to s
 
 - **Example**:
     ```sh
-    curl -X GET http://localhost:8080/abc123
+    curl -X GET http://localhost:8080/BANVmpyh
     ```
 
 ## Testing
